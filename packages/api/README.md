@@ -3,7 +3,7 @@
 The API app is hosted under
 
 ```
-- loan-rendered/packages/api
+- digital-broker-app/packages/api
 ```
 
 ```
@@ -14,6 +14,8 @@ The API app is hosted under
 ## Install
 
 ```
+Pre-requisite: Node (This API has been tested against the node version v20.11.0)
+
 npm install
 ```
 
@@ -34,5 +36,3 @@ npm start
 ```
 npm test
 ```
-
-##### Note: Make sure node is installed. (This API has been tested against the node version v20.11.0)

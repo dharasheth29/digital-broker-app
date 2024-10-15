@@ -1,8 +1,8 @@
-module.exports = {
+export default {
   coverageDirectory: "coverage/packages/api",
   globals: {
     "ts-jest": {
-      tsConfig: "tsconfig.json",
+      tsconfig: "tsconfig.json",
     },
   },
   moduleFileExtensions: ["js", "json", "ts"],

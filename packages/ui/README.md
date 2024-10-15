@@ -3,7 +3,7 @@
 The UI app is hosted under
 
 ```
-- loan-rendered/packages/ui
+- digital-broker-app/packages/ui
 ```
 
 ```
