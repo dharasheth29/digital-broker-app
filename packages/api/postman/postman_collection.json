@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "ee058e31-9947-46c8-af55-0323e157ffee",
+		"name": "Misc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29289294"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/loan-details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loanTerm\": \"2\",\n    \"loanPurpose\": \"test\",\n    \"vehiclePrice\": 50000,\n    \"deposit\": 25000,\n    \"firstName\": \"first name\",\n    \"lastName\": \"last name\",\n    \"dateOfBirth\": \"2024-10-03\",\n    \"email\": \"asas@a.co.in\",\n    \"mobile\": \"0478523698\",\n    \"address\": \"ewewew\",\n    \"employmentStatus\": \"unemployed\",\n    \"annualIncome\": \"232322\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/loan-details",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"loan-details"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
