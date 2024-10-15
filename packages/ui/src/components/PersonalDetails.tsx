@@ -1,43 +1,9 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useFormContext } from "./FormContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
-const schema = yup.object().shape({
-  firstName: yup
-    .string()
-    .matches(/^[a-zA-Z ]+$/, "First name must be alphabetic")
-    .required("First name is required"),
-  lastName: yup
-    .string()
-    .matches(/^[a-zA-Z ]+$/, "Last name must be alphabetic")
-    .required("Last name is required"),
-  dateOfBirth: yup.string().required("Date of birth is required"),
-  email: yup
-    .string()
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid email format")
-    .email("Invalid email format")
-    .required("Email is required"),
-  mobile: yup
-    .string()
-    .matches(/^0\d{9}$/, "Invalid mobile")
-    .required("Mobile is required"),
-  address: yup.string().required("Address is required"),
-  employmentStatus: yup.string().required("Employment status is required"),
-  employerName: yup.string().when("employmentStatus", {
-    is: (employmentStatus: string) => {
-      return employmentStatus === "employed";
-    },
-    then: (s) => s.required("Employer name is required"),
-    otherwise: (s) => s,
-  }),
-  annualIncome: yup
-    .number()
-    .typeError("Annual income must be a number")
-    .min(1, "Annual income must be greater than 0"),
-});
+import { personalDetailsSchema } from "src/schemas/LoanDetailsSchema";
 
 const PersonalDetails = () => {
   const navigate = useNavigate();
@@ -49,7 +15,7 @@ const PersonalDetails = () => {
     watch,
     setValue,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(personalDetailsSchema),
     defaultValues: formData,
   });
 

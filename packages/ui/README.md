@@ -11,25 +11,25 @@ The UI app is hosted under
 - Run -> cd packages/ui (make sure you are in the ui folder on the terminal after running the command)
 ```
 
-## Install
+### Install
 
 ```
 npm install
 ```
 
-## Build
+### Build
 
 ```
 npm run build
 ```
 
-## Start
+### Start
 
 ```
 npm start
 ```
 
-## Run end-to-end test
+### Run end-to-end test
 
 ```
 npm run cy:open

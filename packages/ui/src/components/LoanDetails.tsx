@@ -1,50 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useFormContext } from "./FormContext";
 import Summary from "./LoanSummary";
 import { LoanDetailsResponse } from "../interfaces/loan.Interface";
 import SubmitLoanDetails from "../functions/SubmitLoanDetails";
-
-const schema = yup.object().shape({
-  vehiclePrice: yup
-    .number()
-    .typeError("Vehicle price must be a number")
-    .transform((value, originalValue) =>
-      originalValue.trim() === "" ? 0 : value
-    )
-    .min(2000, "Vehicle price should be minimum 2000")
-    .default(2000)
-    .required("Vehicle price is required"),
-  deposit: yup
-    .number()
-    .typeError("Deposit must be a number")
-    .transform((value, originalValue) =>
-      originalValue.trim() === "" ? 0 : value
-    )
-    .when("vehiclePrice", (vehiclePrice, schema) => {
-      return schema.test(
-        "is-less-than-vehiclePrice",
-        "Deposit must be less than vehicle price",
-        function (deposit: any) {
-          const { vehiclePrice } = this.parent;
-          return deposit < vehiclePrice;
-        }
-      );
-    })
-    .test(
-      "final value",
-      "Difference between Vehicle price and deposit should be greater than 2000",
-      function (deposit: any) {
-        const { vehiclePrice } = this.parent;
-        return vehiclePrice - deposit > 2000;
-      }
-    ),
-  loanPurpose: yup.string().required("Loan Purpose is required"),
-  loanTerm: yup.string().min(0).required("Loan Term is required"),
-});
+import { loanDetailsSchema } from "src/schemas/LoanDetailsSchema";
 
 const LoanDetails: React.FC = () => {
   const navigate = useNavigate();
@@ -57,7 +19,7 @@ const LoanDetails: React.FC = () => {
     formState: { errors },
     setValue,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(loanDetailsSchema),
     defaultValues: formData,
   });
 
