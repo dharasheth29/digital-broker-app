@@ -45,8 +45,9 @@ const LoanSummary: React.FC<SummaryProps> = ({
                 <strong>Interest Rate:</strong> {lender.interestRate}% APR
               </li>
               <li>
-                <strong>Fees:</strong> ${lender.fees.amount} {lender.fees.type}{" "}
-                {lender.fees.type !== "no-fees" ? "fee" : ""}
+                <strong>Fees:</strong>
+                {lender.fees.amount > 0 ? `$${lender.fees.amount}` : ""}{" "}
+                {lender.fees.type} {lender.fees.type !== "no-fees" ? "fee" : ""}
               </li>
             </ul>
           </div>

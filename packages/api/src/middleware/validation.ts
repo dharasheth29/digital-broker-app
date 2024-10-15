@@ -1,8 +1,12 @@
 import Joi from "joi";
 
 const schema = Joi.object({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
+  firstName: Joi.string()
+    .pattern(/^[a-zA-Z ]+$/, "First name must be alphabetic")
+    .required(),
+  lastName: Joi.string()
+    .pattern(/^[a-zA-Z ]+$/, "Last name must be alphabetic")
+    .required(),
   dateOfBirth: Joi.string()
     .pattern(/^\d{4}-\d{2}-\d{2}$/)
     .required()
@@ -22,8 +26,8 @@ const schema = Joi.object({
     .messages({
       "string.pattern.base": "Mobile must be a number",
     }),
-  annualIncome: Joi.string().pattern(/^\d+$/).required().messages({
-    "string.pattern.base": "income must be a numeric string",
+  annualIncome: Joi.number().min(1).required().messages({
+    "string.pattern.base": "income must be a greater than 0",
   }),
   address: Joi.string().required(),
   employmentStatus: Joi.string().required(),

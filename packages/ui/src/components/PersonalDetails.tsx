@@ -161,7 +161,7 @@ const PersonalDetails = () => {
               placeholder="Employer Name"
               onBlur={handleBlur}
             />
-            <p className="error">{errors?.employerName?.message?.toString()}</p>
+            <p>{errors?.employerName?.message?.toString()}</p>
           </>
         )}
         <label htmlFor="annualIncome">Annual Income</label>

@@ -8,3 +8,10 @@ This app hosts 2 packages. Which are Apps, one for the API and another one for t
 ```
 
 To undertand, how to install / build / run each of them, go through the README.md file in the respective folder
+
+In order to run the App end-to-end
+
+```
+- First run the API, which will run on the host http://localhost:3000
+- Secondly run the UI.
+```

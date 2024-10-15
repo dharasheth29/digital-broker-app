@@ -11,6 +11,7 @@ import SubmitLoanDetails from "../functions/SubmitLoanDetails";
 const schema = yup.object().shape({
   vehiclePrice: yup
     .number()
+    .typeError("Vehicle price must be a number")
     .transform((value, originalValue) =>
       originalValue.trim() === "" ? 0 : value
     )
@@ -19,6 +20,7 @@ const schema = yup.object().shape({
     .required("Vehicle price is required"),
   deposit: yup
     .number()
+    .typeError("Deposit must be a number")
     .transform((value, originalValue) =>
       originalValue.trim() === "" ? 0 : value
     )

@@ -37,7 +37,11 @@ npm run cy:open
 
 ######
 
-Should open the Cypress app.
-Click on E2E Testing
-Select a browser & click Start E2E Testing in .... (which should open up a browser)
-Click spec.cy.ts (which will run the interaction end to end for the happy and negative path)
+Pre-requisite: UI App should be up and running to run the end-to-end Cypress test.
+
+```
+- Please check after running the above run command, it has opened Cypress locally.
+- Click on E2E Testing
+- Select a browser & click Start E2E Testing in .... (which should open up a browser)
+- Click spec.cy.ts (which will run the interaction end to end for the happy and negative path)
+```

@@ -31,6 +31,8 @@ npm run build
 npm start
 ```
 
+##### Running this will run the app on http://localhost:3000. Postman collection has been added for the POST route created. That can be imported and API can be run and tested.
+
 ## Run test
 
 ```

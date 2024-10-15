@@ -25,7 +25,7 @@ const loanDetailsResponseMock: LoanDetailsResponse = {
       monthlyRepayment: 0,
       interestRate: 6.0,
       fees: {
-        amount: 300,
+        amount: 0,
         type: "no-fees",
       },
     },
